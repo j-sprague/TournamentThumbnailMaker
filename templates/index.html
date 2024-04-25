@@ -1,0 +1,47 @@
+{% extends '_layout.html' %}
+
+{% block body %} 
+<div class="container"> <div class="col-sm">
+    <h1>Tournament Thumbnail Maker</h1>
+    <p>Input information for your thumbnail</p>
+<form action="/create" method="POST">
+    <div class="form-group">
+        <label for="p1">Player 1</label>
+        <input type="text" class="form-control" name="p1" id="p1">
+    </div>
+    <div class="form-group"> <label for="char1">Character 1</label>
+    <select class="form-control form-group" id="char1" name="char1">
+        <option value="Mario">Mario</option>
+        <option value="Donkey Kong">Donkey Kong</option>
+        <option value="Link">Link</option>
+        <option value="Samus">Samus</option>
+    </select></div>
+    <div class="form-group">
+        <label for="p2">Player 2</label>
+        <input type="text" class="form-control" name="p2" id="p2">
+    </div>
+    <div class="form-group"> <label for="char2">Character 2</label>
+    <select class="form-control form-group" id="char2" name="char2">
+        <option value="Mario">Mario</option>
+        <option value="Donkey Kong">Donkey Kong</option>
+        <option value="Link">Link</option>
+        <option value="Samus">Samus</option>
+    </select></div>
+    <div class="form-group">
+        <label for="left">Bracket Name (Left Message)</label>
+        <input type="text" class="form-control" name="left" id="left">
+    </div>
+    <div class="form-group">
+        <label for="right">Round (Right Message)</label>
+        <input type="text" class="form-control" name="right" id="right">
+    </div>
+    <!-- <div class="form-group">
+        <label for="box-color">Color</label>
+        <input type="color">
+    </div> -->
+    <div class="form-group">
+    <input type="submit" class="btn btn-primary" value="Submit">
+</div>
+</form>
+</div> </div>
+{% endblock %}
