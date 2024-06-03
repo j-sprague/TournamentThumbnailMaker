@@ -16,3 +16,10 @@ Download repository and create a virtual environment. Install requirements.txt a
 * Different theme options
 * Keep previous form data filled out after generating image to make quick edits easier
 * Bulk image generation
+
+## Screenshots
+
+![image](https://github.com/j-sprague/TournamentThumbnailMaker/assets/73149971/67cc6435-cab8-4e97-9172-ef4dbe0c6d4b)
+
+
+![image](https://github.com/j-sprague/TournamentThumbnailMaker/assets/73149971/c47538d7-de76-416f-a4ef-f9ff86f3dd25)
