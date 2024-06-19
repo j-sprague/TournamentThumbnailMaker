@@ -8,9 +8,6 @@ Download repository and create a virtual environment. Install requirements.txt a
 
 ## TODO
 
-* Add full roster images  
-  * currently only 4 out of 86 characters
-* Replace hard-coded character list on selection boxes
 * Save with unique image filenames in a "generated_images" folder
   * currently only overwrites a single image file in the "static" folder for testing purposes
 * Different theme options
