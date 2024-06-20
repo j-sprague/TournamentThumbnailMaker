@@ -1,9 +1,17 @@
 body {
-    background-color:black;
+    background-color:#111111;
+    color:white;
 }
-.center {
+
+label {
+    color:white;
+}
+
+.holder {
+    text-align:center;
+}
+
+.center-button {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
+    margin: 0 auto;
+}

@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from PIL import Image, ImageFont, ImageDraw
+import uuid
 
 app = Flask(__name__)
 
@@ -22,7 +23,7 @@ def create():
     left = request.form.get('left')
     right = request.form.get('right')
     output_img = gen(p1,p2,left,right,char1,char2)
-    return render_template('create.html', output_img=output_img)
+    return render_template('create.html', output_img=output_img, prev_form=request.form)
 
 def gen(p1,p2,round,msg2,char1,char2):
     image = Image.open('template.png')
@@ -69,5 +70,6 @@ def gen(p1,p2,round,msg2,char1,char2):
     draw.text((659+((608-w2)/2),16+dif2),p2,fill="white",font=f2,stroke_width=4,stroke_fill="black")
     draw.text((14+((608-w3)/2),629+dif3),round,fill="white",font=f3,stroke_width=4,stroke_fill="black")
     draw.text((659+((608-w4)/2),629+dif4),msg2,fill="white",font=f4,stroke_width=4,stroke_fill="black")
-    image.save('static/' + str(1) + '.png')
-    return url_for('static',filename='1.png')
+    filename = "generated/" + str(uuid.uuid4()) + ".png"
+    image.save('static/' + filename)
+    return url_for('static',filename=filename)
