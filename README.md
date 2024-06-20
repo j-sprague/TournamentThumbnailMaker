@@ -8,10 +8,8 @@ Download repository and create a virtual environment. Install requirements.txt a
 
 ## TODO
 
-* Save with unique image filenames in a "generated_images" folder
-  * currently only overwrites a single image file in the "static" folder for testing purposes
+
 * Different theme options
-* Keep previous form data filled out after generating image to make quick edits easier
 * Bulk image generation
 
 ## Screenshots
