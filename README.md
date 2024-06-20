@@ -16,7 +16,6 @@ Download repository and create a virtual environment. Install requirements.txt a
 
 ## Screenshots
 
-![image](https://github.com/j-sprague/TournamentThumbnailMaker/assets/73149971/67cc6435-cab8-4e97-9172-ef4dbe0c6d4b)
+![image](https://github.com/j-sprague/TournamentThumbnailMaker/assets/73149971/c75510fe-f5f2-47a8-adb8-990db638ad22)
 
-
-![image](https://github.com/j-sprague/TournamentThumbnailMaker/assets/73149971/c47538d7-de76-416f-a4ef-f9ff86f3dd25)
+![image](https://github.com/j-sprague/TournamentThumbnailMaker/assets/73149971/03c798db-ebcf-418f-9d05-9bd3808a56f2)
