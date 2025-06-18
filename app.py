@@ -26,7 +26,7 @@ def create():
     return render_template('create.html', output_img=output_img, prev_form=request.form)
 
 def gen(p1,p2,round,msg2,char1,char2):
-    image = Image.open('template.png')
+    image = Image.open('click.png')
     draw = ImageDraw.Draw(image)
     f1=f2 = ImageFont.truetype('FOT-Rodin Pro UB.otf',73)
     f3=f4 = ImageFont.truetype('FOT-Rodin Pro UB.otf',65)
@@ -64,7 +64,7 @@ def gen(p1,p2,round,msg2,char1,char2):
     image.paste(char1, (0,0),mask=char1)
     image.paste(char2, (639,0),mask=char2)
     
-    overlay = Image.open('template2.png')
+    overlay = Image.open('template2_old.png')
     image.paste(overlay, (0,0), mask=overlay)
     draw.text((14+((608-w1)/2),16+dif1),p1,fill="white",font=f1,stroke_width=4,stroke_fill="black")
     draw.text((659+((608-w2)/2),16+dif2),p2,fill="white",font=f2,stroke_width=4,stroke_fill="black")
