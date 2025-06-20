@@ -165,7 +165,17 @@
     <option value='Ranno'>Ranno</option>
     <option value='Wrastor'>Wrastor</option>
     <option value='Zetterburn'>Zetterburn</option>
-    </select></div></td><td></td><td>
+    </select></div></td><td>
+
+        <div class="form-group small-form"> <label for="game">Game</label>
+    <select class="form-control form-group" id="game" name="game">
+        <option value='{{prev_form.get('game')}}'>{{prev_form.get('game')}}</option>
+        <option value='Super Smash Bros Ultimate'>Super Smash Bros Ultimate</option>
+        <option value='Rivals of Aether II'>Rivals of Aether II</option>
+        <option value='Super Smash Bros Melee'>Super Smash Bros. Melee</option>
+    </select></div>
+
+    </td><td>
     
     <div class="form-group"> <label for="char2">Character 2</label>
     <select class="form-control form-group" id="char2" name="char2">
@@ -271,7 +281,22 @@
     <div class="form-group">
         <label for="left">Bracket Name (Left Message)</label>
         <input type="text" class="form-control" name="left" id="left" value="{{prev_form.get('left')}}">
-    </div></td><td></td><td>
+    </div></td><td>
+
+        <div class="form-group small-form"> <label for="thumbstyle">Style</label>
+    <select class="form-control form-group" id="thumbstyle" name="thumbstyle">
+        <option value='{{prev_form.get('thumbstyle')}}'>{{prev_form.get('thumbstyle')}}</option>
+        <option value='Standard'>Standard</option>
+        <option value='Beyond'>Beyond</option>
+        <option value='GameZ'>GameZ</option>
+        <option value='0-2 Arcadian'>0-2 Arcadian</option>
+        <option value='2-2 Arcadian'>2-2 Arcadian</option>
+        <option value='KEVCON'>KEVCON</option>
+        <option value='UNCC'>UNCC</option>
+        <option value='Comic-Con'>Comic-Con</option>
+    </select></div>
+
+    </td><td>
     <div class="form-group">
         <label for="right">Round (Right Message)</label>
         <input type="text" class="form-control" name="right" id="right" value="{{prev_form.get('right')}}">
