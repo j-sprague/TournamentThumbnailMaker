@@ -4,10 +4,36 @@
 <div class="container"> <div class="col-sm">
     <h1>Output</h1>
     
-    <img src="{{output_img}}" style="max-height:500px;
+    <img src="{{output_img}}" id="output_img" style="max-height:500px;
         display: block;
         margin-left: auto;
-        margin-right: auto;">
+        margin-right: auto;"><br>
+
+<div class="holder"><a href="{{output_img}}" download><button onclick="download()" id="download_button" type="button" class="btn btn-primary center-button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+</svg>   Download Thumbnail</button></a></div>
+    <!-- <script>
+        function download() {
+
+            let source = document.getElementById("output_img").getAttribute("src");
+            let downloadButton = document.getElementById("download_button");
+
+            downloadButton.setAttribute('href',)
+
+            let p1 = document.getElementById("p1").value;
+            let p2 = document.getElementById("p2").value;
+            document.getElementById("p1").value = p2;
+            document.getElementById("p2").value = p1;
+
+            let char1 = document.getElementById("char1").value;
+            let char2 = document.getElementById("char2").value;
+            document.getElementById("char1").value = char2;
+            document.getElementById("char2").value = char1;
+        
+        }
+    </script> -->
+    <br>
 
 
 <form action="/create" method="POST">
@@ -16,7 +42,9 @@
         <label for="p1">Player 1</label>
         <input type="text" class="form-control" name="p1" id="p1" value="{{prev_form.get('p1')}}">
     </div></td>
-    <td><div class="holder"><button onclick="swap()" type="button" class="btn btn-primary center-button">Swap Players</button></div>
+    <td><div class="holder"><button onclick="swap()" type="button" class="btn btn-primary center-button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5"/>
+</svg> Swap Players</button></div>
     <script>
         function swap() {
             let p1 = document.getElementById("p1").value;
