@@ -6,9 +6,17 @@ app = Flask(__name__)
 
 req = 0
 
+chars_file = open("smash_characters.txt","r")
+chars = chars_file.read().split('\n')
+chars_file.close()
+
+thumbs_file = open("thumbs_styles.txt","r")
+thumbs = thumbs_file.read().split('\n')
+thumbs_file.close()
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html',chars=chars,thumbs=thumbs)
 
 @app.route('/bulk')
 def bulk():
@@ -18,13 +26,13 @@ def bulk():
 def create():
     p1 = request.form.get('p1')
     p2 = request.form.get('p2')
-    char1 = request.form.get('char1')
-    char2 = request.form.get('char2')
+    char1 = request.form.get('char1').strip()
+    char2 = request.form.get('char2').strip()
     left = request.form.get('left')
     right = request.form.get('right')
-    thumbstyle = request.form.get('thumbstyle')
+    thumbstyle = request.form.get('thumbstyle').strip()
     output_img = gen(p1,p2,left,right,char1,char2,thumbstyle)
-    return render_template('create.html', output_img=output_img, prev_form=request.form)
+    return render_template('create.html', output_img=output_img, prev_form=request.form,chars=chars,thumbs=thumbs)
 
 def gen(p1,p2,round,msg2,char1,char2,thumbstyle):
     image = Image.open('thumbnail_styles/' + thumbstyle + '/back.png')

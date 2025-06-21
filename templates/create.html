@@ -68,7 +68,12 @@
 </tr><tr><td>
     <div class="form-group"> <label for="char1">Character 1</label>
     <select class="form-control form-group" id="char1" name="char1">
-        <option value='{{prev_form.get('char1')}}'>{{prev_form.get('char1')}}</option>
+        {% for char in chars %}
+        <option value="{{char}}"   {{'selected="selected"' if prev_form.get('char1')==char else ''}}>
+                {{char}}
+            </option>
+        {% endfor %}
+        <!-- <option value='{{prev_form.get('char1')}}'>{{prev_form.get('char1')}}</option>
         <option value='Mario'>Mario</option>
 <option value='Donkey Kong'>Donkey Kong</option>
 <option value='Link'>Link</option>
@@ -164,7 +169,7 @@
     <option value='Orcane'>Orcane</option>
     <option value='Ranno'>Ranno</option>
     <option value='Wrastor'>Wrastor</option>
-    <option value='Zetterburn'>Zetterburn</option>
+    <option value='Zetterburn'>Zetterburn</option> -->
     </select></div></td><td>
 
         <div class="form-group small-form"> <label for="game">Game</label>
@@ -179,7 +184,12 @@
     
     <div class="form-group"> <label for="char2">Character 2</label>
     <select class="form-control form-group" id="char2" name="char2">
-        <option value='{{prev_form.get('char2')}}'>{{prev_form.get('char2')}}</option>
+        {% for char in chars %}
+        <option value="{{char}}"   {{'selected="selected"' if prev_form.get('char2')==char else ''}}>
+                {{char}}
+            </option>
+        {% endfor %}
+        <!-- <option value='{{prev_form.get('char2')}}'>{{prev_form.get('char2')}}</option>
         <option value='Mario'>Mario</option>
 <option value='Donkey Kong'>Donkey Kong</option>
 <option value='Link'>Link</option>
@@ -275,7 +285,7 @@
     <option value='Orcane'>Orcane</option>
     <option value='Ranno'>Ranno</option>
     <option value='Wrastor'>Wrastor</option>
-    <option value='Zetterburn'>Zetterburn</option>
+    <option value='Zetterburn'>Zetterburn</option> -->
     </select></div></td>
 </tr><tr><td>
     <div class="form-group">
@@ -285,7 +295,14 @@
 
         <div class="form-group small-form"> <label for="thumbstyle">Style</label>
     <select class="form-control form-group" id="thumbstyle" name="thumbstyle">
-        <option value='{{prev_form.get('thumbstyle')}}'>{{prev_form.get('thumbstyle')}}</option>
+
+        {% for thumb in thumbs %}
+        <option value="{{thumb}}"   {{'selected="selected"' if prev_form.get('thumbstyle')==thumb else ''}}>
+                {{thumb}}
+            </option>
+        {% endfor %}
+
+        <!-- <option value='{{prev_form.get('thumbstyle')}}'>{{prev_form.get('thumbstyle')}}</option>
         <option value='Standard'>Standard</option>
         <option value='Beyond'>Beyond</option>
         <option value='GameZ'>GameZ</option>
@@ -293,7 +310,7 @@
         <option value='2-2 Arcadian'>2-2 Arcadian</option>
         <option value='KEVCON'>KEVCON</option>
         <option value='UNCC'>UNCC</option>
-        <option value='Comic-Con'>Comic-Con</option>
+        <option value='Comic-Con'>Comic-Con</option> -->
     </select></div>
 
     </td><td>
