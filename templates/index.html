@@ -4,6 +4,17 @@
 <div class="container"> <div class="col-sm">
     <h1>Tournament Thumbnail Maker</h1>
     <p>Input information for your thumbnail</p>
+
+    <div class="form-group small-form"> <label for="game">Game</label>
+        <form action="/" method="POST">
+    <select class="form-control form-group" id="game" name="game" onchange="this.form.submit()">
+        {% for game in games %}
+        <option value="{{game}}"   {{'selected="selected"' if prev_form.get('game')==game else ''}}>
+                {{game}}
+            </option>
+        {% endfor %}
+    </select></form></div>
+
     <form action="/create" method="POST">
         <table class="table"><tr><td>
         <div class="form-group">
@@ -21,7 +32,12 @@
     </tr><tr><td>
         <div class="form-group"> <label for="char1">Character 1</label>
         <select class="form-control form-group" id="char1" name="char1">
-            <option value='Mario'>Mario</option>
+                        {% for char in chars %}
+        <option value="{{char}}"  >
+                {{char}}
+            </option>
+        {% endfor %}
+            <!-- <option value='Mario'>Mario</option>
     <option value='Donkey Kong'>Donkey Kong</option>
     <option value='Link'>Link</option>
     <option value='Samus'>Samus</option>
@@ -116,21 +132,21 @@
     <option value='Orcane'>Orcane</option>
     <option value='Ranno'>Ranno</option>
     <option value='Wrastor'>Wrastor</option>
-    <option value='Zetterburn'>Zetterburn</option>
+    <option value='Zetterburn'>Zetterburn</option> -->
         </select></div></td><td>
 
-            <div class="form-group small-form"> <label for="game">Game</label>
-    <select class="form-control form-group" id="game" name="game">
-        <option value='Super Smash Bros Ultimate'>Super Smash Bros Ultimate</option>
-        <option value='Rivals of Aether II'>Rivals of Aether II</option>
-        <option value='Super Smash Bros Melee'>Super Smash Bros. Melee</option>
-    </select></div>
+            <input type="hidden" id="game" name="game" value="{{prev_form.get('game')}}">
 
         </td><td>
         
         <div class="form-group"> <label for="char2">Character 2</label>
         <select class="form-control form-group" id="char2" name="char2">
-            <option value='Mario'>Mario</option>
+            {% for char in chars %}
+        <option value="{{char}}"  >
+                {{char}}
+            </option>
+        {% endfor %}
+            <!-- <option value='Mario'>Mario</option>
     <option value='Donkey Kong'>Donkey Kong</option>
     <option value='Link'>Link</option>
     <option value='Samus'>Samus</option>
@@ -225,7 +241,7 @@
     <option value='Orcane'>Orcane</option>
     <option value='Ranno'>Ranno</option>
     <option value='Wrastor'>Wrastor</option>
-    <option value='Zetterburn'>Zetterburn</option>
+    <option value='Zetterburn'>Zetterburn</option> -->
 
         </select></div></td>
     </tr><tr><td>

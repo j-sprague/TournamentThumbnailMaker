@@ -2,8 +2,24 @@
 
 {% block body %} 
 <div class="container"> <div class="col-sm">
-    <h1>Output</h1>
     
+    <h1>Tournament Thumbnail Maker</h1>
+    <p>Input information for your thumbnail</p>
+
+    <div class="form-group small-form"> <label for="game">Game</label>
+        <form action="/" method="POST">
+    <select class="form-control form-group" id="game" name="game" onchange="this.form.submit()">
+        {% for game in games %}
+        <option value="{{game}}"   {{'selected="selected"' if prev_form.get('game')==game else ''}}>
+                {{game}}
+            </option>
+        {% endfor %}
+    </select></form></div>
+
+    <h2>Output</h2>
+    
+    
+
     <img src="{{output_img}}" id="output_img" style="max-height:500px;
         display: block;
         margin-left: auto;
@@ -172,13 +188,7 @@
     <option value='Zetterburn'>Zetterburn</option> -->
     </select></div></td><td>
 
-        <div class="form-group small-form"> <label for="game">Game</label>
-    <select class="form-control form-group" id="game" name="game">
-        <option value='{{prev_form.get('game')}}'>{{prev_form.get('game')}}</option>
-        <option value='Super Smash Bros Ultimate'>Super Smash Bros Ultimate</option>
-        <option value='Rivals of Aether II'>Rivals of Aether II</option>
-        <option value='Super Smash Bros Melee'>Super Smash Bros. Melee</option>
-    </select></div>
+        <input type="hidden" id="game" name="game" value="{{prev_form.get('game')}}">
 
     </td><td>
     

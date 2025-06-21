@@ -6,17 +6,31 @@ app = Flask(__name__)
 
 req = 0
 
-chars_file = open("smash_characters.txt","r")
-chars = chars_file.read().split('\n')
-chars_file.close()
 
 thumbs_file = open("thumbs_styles.txt","r")
 thumbs = thumbs_file.read().split('\n')
 thumbs_file.close()
 
-@app.route('/')
+games_file = open("games.txt","r")
+games = games_file.read().split('\n')
+games_file.close()
+
+@app.route('/',methods=['GET'])
 def index():
-    return render_template('index.html',chars=chars,thumbs=thumbs)
+    chars_file = open("chars/Super Smash Bros Ultimate/chars.txt","r")
+    chars = chars_file.read().split('\n')
+    chars_file.close()
+    prev_form = {'game':'Super Smash Bros Ultimate'}
+    return render_template('index.html',chars=chars,thumbs=thumbs,games=games, prev_form=prev_form)
+
+@app.route('/',methods=['POST'])
+def change():
+    game = request.form.get('game').strip()
+    print(game)
+    chars_file = open("chars/" + game + "/chars.txt","r")
+    chars = chars_file.read().split('\n')
+    chars_file.close()
+    return render_template('index.html',chars=chars,thumbs=thumbs,games=games, prev_form=request.form)
 
 @app.route('/bulk')
 def bulk():
@@ -24,6 +38,10 @@ def bulk():
 
 @app.route('/create', methods=['POST'])
 def create():
+    game = request.form.get('game').strip()
+    chars_file = open("chars/" + game + "/chars.txt","r")
+    chars = chars_file.read().split('\n')
+    chars_file.close()
     p1 = request.form.get('p1')
     p2 = request.form.get('p2')
     char1 = request.form.get('char1').strip()
@@ -31,10 +49,11 @@ def create():
     left = request.form.get('left')
     right = request.form.get('right')
     thumbstyle = request.form.get('thumbstyle').strip()
-    output_img = gen(p1,p2,left,right,char1,char2,thumbstyle)
-    return render_template('create.html', output_img=output_img, prev_form=request.form,chars=chars,thumbs=thumbs)
+    output_img = gen(p1,p2,left,right,char1,char2,thumbstyle,game)
+    # print(request.form)
+    return render_template('create.html', output_img=output_img, prev_form=request.form,chars=chars,thumbs=thumbs,games=games)
 
-def gen(p1,p2,round,msg2,char1,char2,thumbstyle):
+def gen(p1,p2,round,msg2,char1,char2,thumbstyle,game):
     image = Image.open('thumbnail_styles/' + thumbstyle + '/back.png')
     draw = ImageDraw.Draw(image)
     f1=f2 = ImageFont.truetype('FOT-Rodin Pro UB.otf',73)
@@ -68,8 +87,8 @@ def gen(p1,p2,round,msg2,char1,char2,thumbstyle):
         dif4 = dif4 + 1
         w4, h4 = draw.textsize(round, f4)
 
-    char1 = Image.open('chars/' + char1 + '.png')
-    char2 = Image.open('chars/' + char2 + '.png')
+    char1 = Image.open('chars/' + game + "/" + char1 + '.png')
+    char2 = Image.open('chars/' + game + "/" + char2 + '.png')
     image.paste(char1, (0,0),mask=char1)
     image.paste(char2, (639,0),mask=char2)
     
