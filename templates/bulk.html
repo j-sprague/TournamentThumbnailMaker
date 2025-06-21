@@ -2,7 +2,18 @@
 
 {% block body %} 
 <div class="container"> <div class="col-sm">
-    <h1>Not implemented yet.</h1>
+        <h1>Bulk Thumbnail Maker</h1>
+    <p>Input information for your thumbnail</p>
+
+    <div class="form-group small-form"> <label for="game">Game</label>
+        <form action="/bulk" method="POST">
+    <select class="form-control form-group" id="game" name="game" onchange="this.form.submit()">
+        {% for game in games %}
+        <option value="{{game}}"   {{'selected="selected"' if prev_form.get('game')==game else ''}}>
+                {{game}}
+            </option>
+        {% endfor %}
+    </select></form></div>
     
 </div> </div>
 {% endblock %}

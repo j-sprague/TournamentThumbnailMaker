@@ -26,7 +26,7 @@ def index():
 @app.route('/',methods=['POST'])
 def change():
     game = request.form.get('game').strip()
-    print(game)
+    # print(game)
     chars_file = open("chars/" + game + "/chars.txt","r")
     chars = chars_file.read().split('\n')
     chars_file.close()
@@ -34,7 +34,11 @@ def change():
 
 @app.route('/bulk')
 def bulk():
-    return render_template('bulk.html')
+    chars_file = open("chars/Super Smash Bros Ultimate/chars.txt","r")
+    chars = chars_file.read().split('\n')
+    chars_file.close()
+    prev_form = {'game':'Super Smash Bros Ultimate'}
+    return render_template('bulk.html',chars=chars,thumbs=thumbs,games=games, prev_form=prev_form)
 
 @app.route('/create', methods=['POST'])
 def create():
