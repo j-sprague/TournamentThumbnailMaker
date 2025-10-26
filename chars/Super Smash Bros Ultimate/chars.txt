@@ -54,6 +54,7 @@ Greninja
 Mii Brawler
 Mii Swordfighter
 Mii Gunner
+KEV
 Palutena
 Pac-Man
 Robin
