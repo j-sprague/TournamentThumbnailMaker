@@ -252,14 +252,11 @@
 
             <div class="form-group small-form"> <label for="thumbstyle">Style</label>
     <select class="form-control form-group" id="thumbstyle" name="thumbstyle">
-        <option value='Standard'>Standard</option>
-        <option value='Beyond'>Beyond</option>
-        <option value='GameZ'>GameZ</option>
-        <option value='0-2 Arcadian'>0-2 Arcadian</option>
-        <option value='2-2 Arcadian'>2-2 Arcadian</option>
-        <option value='KEVCON'>KEVCON</option>
-        <option value='UNCC'>UNCC</option>
-        <option value='Comic-Con'>Comic-Con</option>
+        {% for thumb in thumbs %}
+        <option value="{{thumb}}"   {{'selected="selected"' if prev_form.get('thumbstyle')==thumb else ''}}>
+                {{thumb}}
+            </option>
+        {% endfor %}
     </select></div>
 
         </td><td>
